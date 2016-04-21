@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Shell Project</string>
+    <string name="action_settings">Settings</string>
+    <string name="book_array">books</string>
+</resources>

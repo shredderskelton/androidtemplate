@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="book_titles">
+        <item>Catcher in the Rye</item>
+        <item>Bravo Two Zero</item>
+        <item>Dont shoot the Dog</item>
+        <item>Management 3.0</item>
+        <item>The God Delusion</item>
+        <item>The 4 Hour Work Week</item>
+        <item>Vagabonding</item>
+        <item>Stranger in a strange land</item>
+        <item>Robinson Crusoe</item>
+        <item>SCRUM Shortcuts</item>
+    </string-array>
+</resources>
