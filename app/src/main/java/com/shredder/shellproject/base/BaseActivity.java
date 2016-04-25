@@ -33,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void syncDrawerToggleState() {
         ActionBarDrawerToggle drawerToggle = getDrawerToggle();
-        if (getDrawerToggle() == null) {
+        if (drawerToggle == null) {
             return;
         }
         if (fragmentManager.getBackStackEntryCount() > 1) {
