@@ -10,7 +10,6 @@ import android.view.View;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private static final String TAG = "BaseActivity";
     private FragmentManager fragmentManager;
     private AddFragmentHandler fragmentHandler;
 
