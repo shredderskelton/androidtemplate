@@ -64,3 +64,5 @@ build/*
 
 #gradle
 .gradle/
+versionTag
+buildNumber

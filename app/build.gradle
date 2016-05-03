@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+ext.vMajor = 1
+ext.vMinor = 0
+ext.vBugfix = 0
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -23,8 +27,8 @@ android {
         applicationId "com.shredder.shellproject"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode getBuildNumber()
+        versionName computeVersionName()
     }
 
     buildTypes {
@@ -48,3 +52,31 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
 }
 
+def getBuildNumber() {
+    def versionCodeFile = file('buildNumber')
+    def versionCode = 9999
+
+    if (versionCodeFile.exists()) {
+        versionCode = versionCodeFile.getText().trim()
+    } else {
+        println "Could not read buildNumber file. Version is set to default 9999. If you are seeing this on the build server, make sure you are executing 'git rev-list --no-merges HEAD | wc -l>app/buildNumber' before running the gradle build."
+    }
+
+    return Integer.valueOf(versionCode)
+}
+
+def writeVersionTagFile(versionNameString) {
+    println sprintf("Writing versionName to versionTag file: versionName=%s", versionNameString)
+    def versionNameFile = file('versionTag')
+    if (!versionNameFile.exists()) {
+        versionNameFile.createNewFile()
+    }
+    versionNameFile.setText(versionNameString)
+}
+
+def computeVersionName() {
+    def fullVersionString = String.format('%d.%d.%d.%d', vMajor, vMinor, vBugfix, getBuildNumber())
+    writeVersionTagFile(fullVersionString)
+    println "Full versionName is " + fullVersionString
+    return fullVersionString
+}
