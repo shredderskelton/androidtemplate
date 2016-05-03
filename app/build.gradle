@@ -4,6 +4,21 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    signingConfigs {
+        debug {
+            storeFile file("shredder-debug.keystore")
+            keyAlias 'followmedebug'
+            keyPassword 'password'
+            storePassword 'password'
+        }
+        release {
+            storeFile file("shredder.keystore")
+            keyAlias 'followme'
+            keyPassword 'Guitar101'
+            storePassword 'Guitar101'
+        }
+    }
+
     defaultConfig {
         applicationId "com.shredder.shellproject"
         minSdkVersion 15
@@ -11,10 +26,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            signingConfig signingConfigs.release
         }
     }
 }
