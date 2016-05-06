@@ -61,7 +61,7 @@ def getBuildNumber() {
     } else {
         println "Could not read buildNumber file. Version is set to default 9999. If you are seeing this on the build server, make sure you are executing 'git rev-list --no-merges HEAD | wc -l>app/buildNumber' before running the gradle build."
     }
- 
+    
     return Integer.valueOf(versionCode)
 }
 
