@@ -4,6 +4,11 @@ ext.vMajor = 1
 ext.vMinor = 0
 ext.vBugfix = 0
 
+if (project.hasProperty("shredder.signing")
+        && new File(project.property("shredder.signing") + ".gradle").exists()) {
+    apply from: project.property("shredder.signing") + ".gradle";
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -14,12 +19,6 @@ android {
             keyAlias 'followmedebug'
             keyPassword 'password'
             storePassword 'password'
-        }
-        release {
-            storeFile file("shredder.keystore")
-            keyAlias 'followme'
-            keyPassword 'Guitar101'
-            storePassword 'Guitar101'
         }
     }
 
@@ -35,11 +34,6 @@ android {
         debug {
             debuggable true
             signingConfig signingConfigs.debug
-        }
-
-        release {
-            debuggable false
-            signingConfig signingConfigs.release
         }
     }
 }

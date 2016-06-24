@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
 
 import com.shredder.shellproject.base.BaseActivity;
@@ -33,8 +34,8 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main_toolbar_on_top);
+        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main_toolbar_on_top);
         ButterKnife.bind(this);
         setupNavigationItems();
         setupDrawerAndToggle();
