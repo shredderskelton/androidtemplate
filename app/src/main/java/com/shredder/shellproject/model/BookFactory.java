@@ -10,7 +10,13 @@ public class BookFactory {
     }
 
     public Book getRandomBook() {
-        long randomIndex = System.currentTimeMillis() % (long) (titles.size()- 1);
+        long randomIndex = System.currentTimeMillis() % (long) (titles.size() - 1);
+        String chosenBookTitle = titles.get((int) randomIndex);
+        return new Book(chosenBookTitle);
+    }
+
+    public Book getRandomBook3() {
+        long randomIndex = System.currentTimeMillis() % (long) (titles.size() - 1);
         String chosenBookTitle = titles.get((int) randomIndex);
         return new Book(chosenBookTitle);
     }
