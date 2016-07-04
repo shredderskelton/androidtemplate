@@ -1,6 +1,7 @@
 package com.shredder.shellproject.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,12 @@ import android.widget.TextView;
 
 import com.shredder.shellproject.R;
 import com.shredder.shellproject.base.BaseFragment;
+import com.shredder.shellproject.model.Book;
+import com.shredder.shellproject.model.BookFactory;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,15 +67,16 @@ public class BookDetailsFragment extends BaseFragment {
     }
 
     private void showRandom() {
+        List<String> titlesList = createLibraryOmittingThisTitle();
+        Book randomTitle = new BookFactory(titlesList).getRandomBook();
+        add(BookDetailsFragment.newInstance(randomTitle.getTitle()));
+    }
+
+    @NonNull
+    private List<String> createLibraryOmittingThisTitle() {
         String[] titles = getResources().getStringArray(R.array.book_titles);
-        long randomIndex = System.currentTimeMillis() % (long) (titles.length - 1);
-        String newTitle = titles[(int) randomIndex];
-
-        if(newTitle.equalsIgnoreCase(title)){
-            showRandom();
-            return;
-        }
-
-        add(BookDetailsFragment.newInstance(newTitle));
+        List<String> titlesList = new ArrayList<>(Arrays.asList(titles));
+        titlesList.remove(this.getTitle());
+        return titlesList;
     }
 }
