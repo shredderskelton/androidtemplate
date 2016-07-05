@@ -27,7 +27,7 @@
         android:id="@+id/main_navigation"
         android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:layout_gravity="left|start"
+        android:layout_gravity="start"
         android:background="?attr/colorPrimaryDark"
         android:fitsSystemWindows="true"/>
 

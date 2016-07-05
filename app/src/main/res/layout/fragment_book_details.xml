@@ -10,7 +10,7 @@
         android:layout_height="0dip"
         android:layout_weight="0.99"
         android:gravity="center"
-        android:text="This book is a great read blah blah blah"
+        android:text="@string/book_details"
         android:textSize="40sp"/>
 
     <Button
@@ -18,5 +18,5 @@
         android:layout_weight="0.1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show one more like this"/>
+        android:text="@string/one_more"/>
 </LinearLayout>

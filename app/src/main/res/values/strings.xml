@@ -2,4 +2,7 @@
     <string name="app_name">Shell Project</string>
     <string name="action_settings">Settings</string>
     <string name="book_array">books</string>
+    <string name="book_details">This book is a great read blah blah blah</string>
+    <string name="one_more">Show one more like this</string>
+    <string name="settings_placeholder">Settings go here</string>
 </resources>
