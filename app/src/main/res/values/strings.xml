@@ -2,5 +2,6 @@
     <string name="app_name">Shell Project</string>
     <string name="book_details">This book is a great read blah blah blah</string>
     <string name="one_more">Show one more like this</string>
-    <string name="settings_placeholder">Settings go here</string>
+    <string name="settings_placeholder">App Version:</string>
+    <string name="settings_directions">Please give this version code to your friendly help desk support dude or dudette. They will help you decide whether you have the correct version.</string>
 </resources>

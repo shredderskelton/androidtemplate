@@ -35,6 +35,18 @@ android {
             debuggable true
             signingConfig signingConfigs.debug
         }
+        alpha {
+            debuggable true
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".alpha"
+            versionNameSuffix '-alpha'
+        }
+        beta {
+            debuggable true
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".beta"
+            versionNameSuffix '-beta'
+        }
     }
 }
 
@@ -56,10 +68,10 @@ def getBuildNumber() {
         println "Could not read buildNumber file. Version is set to default 9999. If you are seeing this on the build server, make sure you are executing 'git rev-list --no-merges HEAD | wc -l>app/buildNumber' before running the gradle build."
     }
 
-    return Integer.valueOf(versionCode)
+    return Integer.valueOf(versionCode as String)
 }
 
-def writeVersionTagFile(versionNameString) {
+def writeVersionTagFile(String versionNameString) {
     println sprintf("Writing versionName to versionTag file: versionName=%s", versionNameString)
     def versionNameFile = file('versionTag')
     if (!versionNameFile.exists()) {
