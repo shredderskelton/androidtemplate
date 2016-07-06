@@ -13,9 +13,6 @@ import com.shredder.shellproject.fragments.BookDetailsFragment;
 import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.SettingsFragment;
 
-import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.UpdateManager;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
@@ -42,38 +39,6 @@ public class MainActivity extends BaseActivity {
         setupNavigationItems();
         setupDrawerAndToggle();
         showBookingList();
-        checkForUpdates();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        unregisterManagers();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        checkForCrashes();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unregisterManagers();
-    }
-
-    private void checkForUpdates() {
-        // Remove this for store builds!
-        UpdateManager.register(this);
-    }
-
-    private void unregisterManagers() {
-        UpdateManager.unregister();
-    }
-
-    private void checkForCrashes() {
-        CrashManager.register(this);
     }
 
     private void setupDrawerAndToggle() {

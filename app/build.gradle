@@ -34,20 +34,20 @@ android {
         debug {
             debuggable true
             signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-debug'
         }
         alpha {
             debuggable true
             signingConfig signingConfigs.debug
             applicationIdSuffix ".alpha"
             versionNameSuffix '-alpha'
-            manifestPlaceholders = [HOCKEYAPP_APP_ID: "f6833b071e4240929927a7580933755f"]
         }
         beta {
             debuggable true
             signingConfig signingConfigs.debug
             applicationIdSuffix ".beta"
             versionNameSuffix '-beta'
-            manifestPlaceholders = [HOCKEYAPP_APP_ID: "f6833b071e4240929927a7580933755f"]
         }
     }
 }

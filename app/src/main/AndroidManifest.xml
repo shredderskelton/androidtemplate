@@ -11,7 +11,7 @@
 
         <meta-data
             android:name="net.hockeyapp.android.appIdentifier"
-            android:value="${HOCKEYAPP_APP_ID}"/>
+            android:value="f6833b071e4240929927a7580933755f"/>
 
         <activity
             android:name=".MainActivity"
