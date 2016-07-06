@@ -6,13 +6,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
-
 import android.widget.ListView;
 
 import com.shredder.shellproject.base.BaseActivity;
-import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.BookDetailsFragment;
+import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.SettingsFragment;
+
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.UpdateManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +42,38 @@ public class MainActivity extends BaseActivity {
         setupNavigationItems();
         setupDrawerAndToggle();
         showBookingList();
+        checkForUpdates();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterManagers();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkForCrashes();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterManagers();
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this);
+    }
+
+    private void unregisterManagers() {
+        UpdateManager.unregister();
+    }
+
+    private void checkForCrashes() {
+        CrashManager.register(this);
     }
 
     private void setupDrawerAndToggle() {
