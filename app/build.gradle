@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 ext.vMajor = 1
-ext.vMinor = 2
+ext.vMinor = 3
 ext.vBugfix = 0
 
 if (project.hasProperty("shredder.signing")
@@ -34,6 +34,8 @@ android {
         debug {
             debuggable true
             signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-debug'
         }
         alpha {
             debuggable true
@@ -56,6 +58,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
 }
 
 def getBuildNumber() {
