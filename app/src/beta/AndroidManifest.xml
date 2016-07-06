@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.shredder.shellproject"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <meta-data
+            android:name="net.hockeyapp.android.appIdentifier"
+            android:value="f6833b071e4240929927a7580933755f"
+            tools:replace="android:value"/>
+    </application>
+</manifest>

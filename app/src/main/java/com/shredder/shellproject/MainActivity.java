@@ -6,12 +6,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
-
 import android.widget.ListView;
 
 import com.shredder.shellproject.base.BaseActivity;
-import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.BookDetailsFragment;
+import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.SettingsFragment;
 
 import butterknife.Bind;
