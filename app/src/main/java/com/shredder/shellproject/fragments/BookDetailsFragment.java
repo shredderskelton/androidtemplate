@@ -23,7 +23,7 @@ import butterknife.OnClick;
 
 public class BookDetailsFragment extends BaseFragment {
 
-    private static final String BOOKING_TITLE = "BOOKING_TITLE";
+    private static final String BOOKING_TITLE = "BOOKINGTITLE";
 
     private String title;
 
