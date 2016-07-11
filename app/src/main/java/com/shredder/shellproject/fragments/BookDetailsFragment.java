@@ -52,7 +52,7 @@ public class BookDetailsFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_details, container, false);
         ButterKnife.bind(this, view);
-        textView.setText(title + " is a great book because of the blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ");
+        textView.setText(title + " is a great book because of the blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ");
         return view;
     }
 
