@@ -55,8 +55,9 @@ public class BookListFragment extends BaseFragment implements BackButtonSupportF
         //return true when handled by yourself
         if (consumingBackPress) {
             //This is actually a terrible thing to do and totally against the guidelines
-            // Ideally you shouldn't handle the backpress ever, so really think twice about what
+            // Ideally you shouldn't handle the back press ever, so really think twice about what
             // you are doing and whether you are getting hacky
+            // It's normally used to say validate a screen or maybe saved the values on the screen before popping
             toast = Toast.makeText(getActivity(), "Press back once more to quit the application", Toast.LENGTH_LONG);
             toast.show();
             consumingBackPress = false;
