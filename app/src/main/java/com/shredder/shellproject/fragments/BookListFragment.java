@@ -53,6 +53,7 @@ public class BookListFragment extends BaseFragment implements BackButtonSupportF
     @Override
     public boolean onBackPressed() {
         //return true when handled by yourself
+        
         if (consumingBackPress) {
             //This is actually a terrible thing to do and totally against the guidelines
             // Ideally you shouldn't handle the back press ever, so really think twice about what
