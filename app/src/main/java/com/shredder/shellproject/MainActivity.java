@@ -34,7 +34,7 @@ public class MainActivity extends HockeyActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setContentView(R.layout.activity_main_toolbar_on_top);
+//      setContentView(R.layout.activity_main_toolbar_on_top);
         ButterKnife.bind(this);
         setupNavigationItems();
         setupDrawerAndToggle();
