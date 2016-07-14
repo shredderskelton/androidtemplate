@@ -20,10 +20,10 @@ import butterknife.OnItemClick;
 public class MainActivity extends BaseActivity {
 
     @Bind(R.id.main_navigation)
-    ListView mDrawerList;
+    ListView drawerList;
 
     @Bind(R.id.main_drawer)
-    DrawerLayout mDrawerLayout;
+    DrawerLayout drawerLayout;
 
     @Bind(R.id.main_toolbar)
     Toolbar toolbar;
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, 0, 0) {
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -58,14 +58,14 @@ public class MainActivity extends BaseActivity {
                 super.onDrawerClosed(drawerView);
             }
         };
-        mDrawerLayout.addDrawerListener(drawerToggle);
+        drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
     }
 
     private void setupNavigationItems() {
         String[] navigationItems = {"Books", "Random Book", "Settings"};
         ArrayAdapter<String> mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, navigationItems);
-        mDrawerList.setAdapter(mAdapter);
+        drawerList.setAdapter(mAdapter);
     }
 
     @OnItemClick(R.id.main_navigation)
@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity {
             default:
                 break;
         }
-        mDrawerLayout.closeDrawer(mDrawerList);
+        drawerLayout.closeDrawer(drawerList);
     }
 
     private void showSettings() {
@@ -102,7 +102,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected DrawerLayout getDrawer() {
-        return mDrawerLayout;
+        return drawerLayout;
     }
 
     @Override

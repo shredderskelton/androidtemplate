@@ -37,6 +37,6 @@ public class SettingsFragment extends BaseFragment {
 
     @Override
     protected String getTitle() {
-        return "SettingsFragment";
+        return "Settings";
     }
 }
