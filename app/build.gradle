@@ -65,7 +65,7 @@ def getBuildNumber() {
     if (!System.getenv('CI_BUILD')) {
         return 9999
     }
-    def cmd = 'git rev-list --no-merges HEAD | wc -l'
+    def cmd = 'git rev-list HEAD --no-merges --count'
     cmd.execute().text.trim().toInteger()
 }
 
