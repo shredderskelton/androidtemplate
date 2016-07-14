@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 ext.vMajor = 1
-ext.vMinor = 5
+ext.vMinor = 6
 ext.vBugfix = 0
 
 if (project.hasProperty("shredder.signing")
