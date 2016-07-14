@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.shredder.shellproject.base.BaseActivity;
+import com.shredder.shellproject.base.HockeyActivity;
 import com.shredder.shellproject.fragments.BookDetailsFragment;
 import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.SettingsFragment;
@@ -17,7 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends HockeyActivity {
 
     @Bind(R.id.main_navigation)
     ListView drawerList;
