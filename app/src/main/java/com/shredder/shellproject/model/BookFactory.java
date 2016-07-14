@@ -14,10 +14,4 @@ public class BookFactory {
         String chosenBookTitle = titles.get((int) randomIndex);
         return new Book(chosenBookTitle);
     }
-
-    public Book getRandodduplicationsssmBook() {
-        long randomIndex = System.currentTimeMillis() % (long) (titles.size() - 1);
-        String chosenBookTitle = titles.get((int) randomIndex);
-        return new Book(chosenBookTitle);
-    }
 }

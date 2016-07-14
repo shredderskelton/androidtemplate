@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 ext.vMajor = 1
-ext.vMinor = 4
+ext.vMinor = 5
 ext.vBugfix = 0
 
 if (project.hasProperty("shredder.signing")
@@ -62,15 +62,11 @@ dependencies {
 }
 
 def getBuildNumber() {
-    def versionCodeFile = file('buildNumber')
-    def versionCode = 9999
-
-    if (versionCodeFile.exists()) {
-        versionCode = versionCodeFile.getText().trim()
-    } else {
-        println "Could not read buildNumber file. Version is set to default 9999. If you are seeing this on the build server, make sure you are executing 'git rev-list --no-merges HEAD | wc -l>app/buildNumber' before running the gradle build."
+    if (!System.getenv('CI_BUILD')) {
+        return 9999
     }
-    return Integer.valueOf(versionCode as String)
+    def cmd = 'git rev-list HEAD --first-parent --count'
+    cmd.execute().text.trim().toInteger()
 }
 
 def writeVersionTagFile(String versionNameString) {
