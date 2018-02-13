@@ -12,13 +12,13 @@ import com.shredder.shellproject.R;
 import com.shredder.shellproject.base.BackButtonSupportFragment;
 import com.shredder.shellproject.base.BaseFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
 public class BookListFragment extends BaseFragment implements BackButtonSupportFragment {
 
-    @Bind(R.id.book_list_view)
+    @BindView(R.id.book_list_view)
     ListView listView;
 
     private String[] titlesArray;

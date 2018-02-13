@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -27,7 +27,7 @@ public class BookDetailsFragment extends BaseFragment {
 
     private String title;
 
-    @Bind(R.id.book_details_text)
+    @BindView(R.id.book_details_text)
     TextView textView;
 
     public static BookDetailsFragment newInstance(String title) {

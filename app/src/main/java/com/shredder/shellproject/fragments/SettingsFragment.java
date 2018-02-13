@@ -11,7 +11,7 @@ import com.shredder.shellproject.BuildConfig;
 import com.shredder.shellproject.R;
 import com.shredder.shellproject.base.BaseFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SettingsFragment extends BaseFragment {
@@ -19,7 +19,7 @@ public class SettingsFragment extends BaseFragment {
         return new SettingsFragment();
     }
 
-    @Bind(R.id.version_text)
+    @BindView(R.id.version_text)
     TextView versionText;
 
     @Override

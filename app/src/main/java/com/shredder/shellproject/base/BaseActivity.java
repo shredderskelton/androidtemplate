@@ -13,13 +13,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private AddFragmentHandler fragmentHandler;
 
-    final View.OnClickListener navigationBackPressListener = new View.OnClickListener() {
+    private final View.OnClickListener navigationBackPressListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             fragmentManager.popBackStack();
         }
     };
-    FragmentManager.OnBackStackChangedListener backStackListener = new FragmentManager.OnBackStackChangedListener() {
+
+    private final FragmentManager.OnBackStackChangedListener backStackListener = new FragmentManager.OnBackStackChangedListener() {
         @Override
         public void onBackStackChanged() {
             onBackStackChangedEvent();
@@ -127,8 +128,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (!(fragmentOnTop instanceof BackButtonSupportFragment)) {
             return false;
         }
-        boolean consumedBackPress = ((BackButtonSupportFragment) fragmentOnTop).onBackPressed();
-        return consumedBackPress;
+        return ((BackButtonSupportFragment) fragmentOnTop).onBackPressed();
     }
 
     protected abstract ActionBarDrawerToggle getDrawerToggle();

@@ -13,19 +13,19 @@ import com.shredder.shellproject.fragments.BookDetailsFragment;
 import com.shredder.shellproject.fragments.BookListFragment;
 import com.shredder.shellproject.fragments.SettingsFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
 public class MainActivity extends HockeyActivity {
 
-    @Bind(R.id.main_navigation)
+    @BindView(R.id.main_navigation)
     ListView drawerList;
 
-    @Bind(R.id.main_drawer)
+    @BindView(R.id.main_drawer)
     DrawerLayout drawerLayout;
 
-    @Bind(R.id.main_toolbar)
+    @BindView(R.id.main_toolbar)
     Toolbar toolbar;
 
     private ActionBarDrawerToggle drawerToggle;

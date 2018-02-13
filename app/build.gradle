@@ -4,14 +4,14 @@ ext.vMajor = 1
 ext.vMinor = 5
 ext.vBugfix = 0
 
-if (project.hasProperty("shredder.signing")
-        && new File(project.property("shredder.signing") + ".gradle").exists()) {
-    apply from: project.property("shredder.signing") + ".gradle";
+static def evalVersionCode() {
+    def process = "git rev-list --all --count".execute()
+    return process.text.toInteger()
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     signingConfigs {
         debug {
@@ -20,14 +20,20 @@ android {
             keyPassword 'password'
             storePassword 'password'
         }
+        release {
+            keyAlias project.hasProperty('keyAlias') ? project['keyAlias'] : "false"
+            keyPassword project.hasProperty('keyPassword') ? project['keyPassword'] : "false"
+            storeFile file(project.hasProperty('storeFile') ? project['storeFile'] : "shredder-debug.keystore")
+            storePassword project.hasProperty('storePassword') ? project['storePassword'] : "false"
+        }
     }
 
     defaultConfig {
         applicationId "com.shredder.shellproject"
         minSdkVersion 15
-        targetSdkVersion 23
-        versionCode getBuildNumber()
-        versionName computeVersionName()
+        targetSdkVersion 27
+        versionCode evalVersionCode()
+        versionName "${vMajor}.${vMinor}.${vBugfix}.${evalVersionCode()}"
     }
 
     buildTypes {
@@ -49,38 +55,22 @@ android {
             applicationIdSuffix ".beta"
             versionNameSuffix '-beta'
         }
+        release {
+            debuggable false
+            signingConfig signingConfigs.release
+        }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
-}
+    testImplementation 'junit:junit:4.12'
 
-def getBuildNumber() {
-    if (!System.getenv('CI_BUILD')) {
-        return 9999
-    }
-    def cmd = 'git rev-list HEAD --no-merges --count'
-    cmd.execute().text.trim().toInteger()
-}
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'net.hockeyapp.android:HockeySDK:5.0.3'
 
-def writeVersionTagFile(String versionNameString) {
-    println sprintf("Writing versionName to versionTag file: versionName=%s", versionNameString)
-    def versionNameFile = file('versionTag')
-    if (!versionNameFile.exists()) {
-        versionNameFile.createNewFile()
-    }
-    versionNameFile.setText(versionNameString)
-}
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-def computeVersionName() {
-    def fullVersionString = String.format('%d.%d.%d.%d', vMajor, vMinor, vBugfix, getBuildNumber())
-    writeVersionTagFile(fullVersionString)
-    println "Full versionName is " + fullVersionString
-    return fullVersionString
 }
